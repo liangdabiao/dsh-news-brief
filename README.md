@@ -4,6 +4,8 @@ DeepSeek Harness（dsh）插件：**一个关键词并行搜索 11 大平台**�
 
 移植自 [redfox-data/redfox-community](https://github.com/redfox-data/redfox-community) 的 `skills/global-ai-news-brief`（Python 全量重写为 Node 原生，**零 Python 依赖**；上游 report-template.html 蓝色主题模板原样复用）。
  <img width="2409" height="1380" alt="image" src="https://github.com/user-attachments/assets/021f5001-7a5c-4451-b59a-2d6b91c1d70f" />
+ <img width="1572" height="1313" alt="image" src="https://github.com/user-attachments/assets/7d9b0572-3def-43df-93ba-62fa8e18f857" />
+
 <img width="2067" height="1244" alt="image" src="https://github.com/user-attachments/assets/85b1f856-5480-4918-9afb-fdb3be82c4d6" />
 
 <img width="2255" height="444" alt="image" src="https://github.com/user-attachments/assets/b32f9cc9-7ae1-4ee2-a054-a49a74d059b8" />
