@@ -1,6 +1,6 @@
 // ============================================================================
-// 全球 AI 新闻简报 · 浏览器半边
-//   - 侧栏加「全球 AI 新闻简报」入口，主区域是插件页面（/news-brief/，iframe）
+// 全球新闻AI简报 · 浏览器半边
+//   - 侧栏加「全球新闻AI简报」入口，主区域是插件页面（/news-brief/，iframe）
 //   - 页面发 news-brief:refresh：postMessage 一段草稿，这里开新对话并填进输入框（不自动发送）
 //   - 明暗跟随 dsh 主题
 //
@@ -61,7 +61,7 @@ function apply(ctx) {
     return h('iframe', {
       ref,
       src: SRC,
-      title: '全球 AI 新闻简报',
+      title: '全球新闻AI简报',
       allow: 'fullscreen',
       onLoad: (e) => post(e.currentTarget),
       style: { width: '100%', height: '100%', border: 0, display: 'block' },
@@ -69,7 +69,7 @@ function apply(ctx) {
   }
 
   ctx.slots.inject('sidebar.panellist', () =>
-    ctx.slots.register({ name: 'sidebar.panellist', id: PANEL, order: 15, label: () => '全球 AI 新闻简报' }, PanelIcon))
+    ctx.slots.register({ name: 'sidebar.panellist', id: PANEL, order: 15, label: () => '全球新闻AI简报' }, PanelIcon))
   ctx.slots.inject('main', () => ctx.slots.register({ name: 'main', key: PANEL }, Cn30Panel))
 }
 

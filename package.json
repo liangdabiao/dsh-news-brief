@@ -1,7 +1,7 @@
 {
   "name": "dsh-news-brief",
   "version": "0.1.0",
-  "description": "全球 AI 新闻简报 · 一个关键词并行搜索 11 大平台（抖音/小红书/公众号/B站/快手/视频号/头条/TikTok/Instagram/X/YouTube），跨平台聚合标准化，agent 按四大板块生成情报报告（新闻事件/新闻解读/平台倾向/数据源）+ 交互式 HTML。需 RedFox API Key，移植自 redfox-data/redfox-community skills/global-ai-news-brief。",
+  "description": "全球新闻AI简报 · 一个关键词并行搜索 11 大平台（抖音/小红书/公众号/B站/快手/视频号/头条/TikTok/Instagram/X/YouTube），跨平台聚合标准化，agent 按四大板块生成情报报告（新闻事件/新闻解读/平台倾向/数据源）+ 交互式 HTML。需 RedFox API Key，移植自 redfox-data/redfox-community skills/global-ai-news-brief。",
   "license": "MIT",
   "type": "module",
   "main": "src/host.js",

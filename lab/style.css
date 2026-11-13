@@ -348,3 +348,26 @@ svg.ic { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none
 .tl-mini { display: flex; flex-direction: column; gap: var(--sp-3); }
 .tl-mini .tl-item { display: flex; gap: var(--sp-3); font-size: 13px; }
 .tl-mini .tl-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-helper); flex: none; padding-top: 2px; }
+
+/* ---------- 报告查看器（面板内覆盖层，不依赖 window.open） ---------- */
+.report-view { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center; padding: var(--sp-5); background: rgba(10, 10, 10, .55); backdrop-filter: blur(2px); }
+.rv-panel { display: flex; flex-direction: column; width: 100%; height: 100%; max-width: 1240px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(0, 0, 0, .28); }
+.rv-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--line-subtle); flex: 0 0 auto; }
+.rv-title { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+.rv-title .ic { width: 15px; height: 15px; }
+.rv-actions { display: inline-flex; gap: var(--sp-2); }
+.rv-body { flex: 1 1 auto; min-height: 0; overflow: hidden; display: flex; }
+.rv-body > .loading, .rv-body > .empty { margin: auto; }
+.rv-frame { width: 100%; height: 100%; border: 0; display: block; background: var(--paper); }
+
+.chip.act { cursor: pointer; background: var(--paper); font-size: 10px; }
+.chip.act:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.chip.act.gen { color: var(--text-helper); }
+.slot { display: inline-flex; }
+.card[data-brief-card] { cursor: pointer; }
+.card[data-brief-card]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 860px) {
+  .report-view { padding: 0; }
+  .rv-panel { max-width: none; border: 0; }
+}

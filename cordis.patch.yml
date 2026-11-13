@@ -1,4 +1,4 @@
-# 全球 AI 新闻简报：news_brief 工具（11 平台并行搜索/标准化/报告）+ global-ai-news-brief 技能 + 侧栏看板。
+# 全球新闻AI简报：news_brief 工具（11 平台并行搜索/标准化/报告）+ global-ai-news-brief 技能 + 侧栏看板。
 # 浏览器半边由 dsh.client 声明加载。
 - insert:
     - id: news-brief

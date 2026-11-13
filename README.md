@@ -1,4 +1,4 @@
-# dsh-news-brief · 全球 AI 新闻简报
+# dsh-news-brief · 全球新闻AI简报
 
 DeepSeek Harness（dsh）插件：**一个关键词并行搜索 11 大平台**（抖音/小红书/公众号/B站/快手/视频号/今日头条/TikTok/Instagram/X/YouTube），跨平台聚合标准化，agent 按四大板块撰写情报报告 + 交互式 HTML。
 
@@ -37,11 +37,18 @@ news_brief(action="search", keyword="…")        ← 并行 11 平台，同步 
   → 交互式 HTML（概览卡/时间线/话题卡/舆情条/大V卡/矩阵/柱图/Tab 数据卡）
 ```
 
-## 面板（侧栏「全球 AI 新闻简报」）
+## 面板（侧栏「全球新闻AI简报」）
 
-- **概览**：关键词 + 11 平台勾选 + 简报历史；「去对话出情报报告」开新对话
-- **简报页**：平台采集状态（✓/✗ + 失败原因）、各平台互动量对比条、agent 分析摘要（舆情条 + 时间线）、一键打开 HTML 报告
+- **概览**：关键词 + 11 平台勾选 + 简报历史（卡片上直接有「📄 打开报告」入口）；「去对话出情报报告」开新对话
+- **报告**：报告库页，列出全部已生成的 HTML 情报报告，在面板内覆盖层查看
+- **简报页**：平台采集状态（✓/✗ + 失败原因）、各平台互动量对比条、agent 分析摘要（舆情条 + 时间线）、打开/生成 HTML 报告
 - **设置**：API Key、代理（海外平台需要）、接口地址
+
+> ⚠️ 桌面端 dsh 的 WebContentsView 会 deny `window.open`/`target=_blank`，所以报告**不能**用新窗口打开：
+> 面板改为同源 fetch 报告 HTML → `iframe.srcdoc` 在覆盖层里渲染；报告里的条目链接由宿主 `POST /api/open`
+> （`lib/open.js`，系统默认浏览器打开）处理——`/report` 路由用 `injectOpenLinks` 注入点击转发脚本。
+> 报告是否存在由 `meta.has_report`（宿主）给出，宿主未重启时面板用 `HEAD /api/briefs/<bid>/report` 探测兜底。
+> `/api/open` 是宿主路由：改完要**重启一次 dsh** 才生效（`lab/` 静态文件改完刷新面板即可）。
 
 ## 配置
 

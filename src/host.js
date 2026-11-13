@@ -1,4 +1,4 @@
-// 全球 AI 新闻简报 · Host 半边（news_brief 原生工具 + 技能提供方 + 四大板块注入 + 面板数据面）。
+// 全球新闻AI简报 · Host 半边（news_brief 原生工具 + 技能提供方 + 四大板块注入 + 面板数据面）。
 // 搜索/标准化/模板填充是纯数据操作由工具完成；四大板块分析由会话模型按技能撰写（analysisJson 注入模板）。
 import Schema from '@deepseek-ai/schemastery'
 import { join, dirname } from 'node:path'
@@ -93,7 +93,7 @@ function renderItem(platform, it) {
 export const newsBriefTool = {
   name: 'news_brief',
   description:
-    '全球 AI 新闻简报：一个关键词并行搜索 11 大平台（抖音/小红书/公众号/B站/快手/视频号/头条/TikTok/Instagram/X/YouTube），' +
+    '全球新闻AI简报：一个关键词并行搜索 11 大平台（抖音/小红书/公众号/B站/快手/视频号/头条/TikTok/Instagram/X/YouTube），' +
     '跨平台聚合标准化后，由你按四大板块撰写情报报告（新闻事件/新闻解读/各平台解读倾向/数据源），工具生成交互式 HTML。' +
     '流程：search 并行采集（同步约 10-30 秒，失败平台自动跳过）→ 按技能撰写分析 → report 注入模板生成 HTML。' +
     '需要 RedFox API Key。海外平台（TikTok/Instagram/X/YouTube）在无代理网络下可能失败，失败不影响其余平台。',
@@ -126,7 +126,7 @@ export const newsBriefTool = {
       const settings = getSettings()
       const apiKey = resolveApiKey({ settings, config: cfg })
       if (!apiKey) {
-        return result(false, '未配置 RedFox API Key。请用户到面板「全球 AI 新闻简报 → 设置」填入，或在插件配置/环境变量 REDFOX_API_KEY 里配置（获取：https://redfox.hk/settings/api-keys?source=github）。')
+        return result(false, '未配置 RedFox API Key。请用户到面板「全球新闻AI简报 → 设置」填入，或在插件配置/环境变量 REDFOX_API_KEY 里配置（获取：https://redfox.hk/settings/api-keys?source=github）。')
       }
       const intel = await fetchAll({
         keyword, platforms, apiKey, apiBase: resolveApiBase({ settings }),
@@ -195,12 +195,15 @@ export const newsBriefTool = {
       const allItems = Object.values(intel.results || {}).flatMap((r) => r.items)
       const range = computeDataTimeRange(allItems)
       return result(true,
-        `HTML 报告已生成${analysis.eventSummary ? '（四大板块已填充）' : '（纯数据版，板块一/二待分析）'}：${file}`,
+        `HTML 报告已生成${analysis.eventSummary ? '（四大板块已填充）' : '（纯数据版，板块一/二待分析）'}：${file}。` +
+        '桌面端 WebContentsView 会 deny window.open/target=_blank，报告只能在面板内查看——' +
+        '告诉用户点侧栏「全球新闻AI简报」→「报告」页（或该简报页）的「打开 HTML 报告」，不要把磁盘路径当成可点开的入口。',
         [
           `数据时间范围: ${range.short}（${range.long}）`,
           `互动量口径: 点赞 + 评论 + 分享 + 播放（无播放数据按 0 计）`,
           `平台统计: ${Object.entries(intel.results || {}).map(([k, r]) => `${r.platform} ${r.count} 条`).join(' / ')}`,
           `报告文件: ${file}`,
+          `面板入口: 侧栏「全球新闻AI简报」→「报告」→「打开报告」`,
         ].join('\n'))
     }
 

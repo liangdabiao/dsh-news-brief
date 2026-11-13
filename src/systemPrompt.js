@@ -1,5 +1,5 @@
-// 系统提示注入：全球 AI 新闻简报工作流硬规则（四大板块输出规范在技能里）。
-export const SYSTEM_RULES = `## 全球 AI 新闻简报（news-brief）
+// 系统提示注入：全球新闻AI简报工作流硬规则（四大板块输出规范在技能里）。
+export const SYSTEM_RULES = `## 全球新闻AI简报（news-brief）
 
 用户要「全网搜索某话题 / 舆情分析 / 热点追踪 / 跨平台情报对比 / 新闻解读」时：
 
