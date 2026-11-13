@@ -3,7 +3,7 @@
 DeepSeek Harness（dsh）插件：**一个关键词并行搜索 11 大平台**（抖音/小红书/公众号/B站/快手/视频号/今日头条/TikTok/Instagram/X/YouTube），跨平台聚合标准化，agent 按四大板块撰写情报报告 + 交互式 HTML。
 
 移植自 [redfox-data/redfox-community](https://github.com/redfox-data/redfox-community) 的 `skills/global-ai-news-brief`（Python 全量重写为 Node 原生，**零 Python 依赖**；上游 report-template.html 蓝色主题模板原样复用）。
-<img width="2508" height="1362" alt="image" src="https://github.com/user-attachments/assets/aa10284f-89b8-4ec5-a2a1-9dcd2d672f18" />
+ <img width="2409" height="1380" alt="image" src="https://github.com/user-attachments/assets/021f5001-7a5c-4451-b59a-2d6b91c1d70f" />
 
 <img width="2255" height="444" alt="image" src="https://github.com/user-attachments/assets/b32f9cc9-7ae1-4ee2-a054-a49a74d059b8" />
 
