@@ -11,6 +11,12 @@ DeepSeek Harness（dsh）插件：**一个关键词并行搜索 11 大平台**�
 <img width="2255" height="444" alt="image" src="https://github.com/user-attachments/assets/b32f9cc9-7ae1-4ee2-a054-a49a74d059b8" />
 
 
+## 安装
+
+```bash
+dsh plugin --profile web add https://github.com/liangdabiao/dsh-news-brief
+```
+
 ## 覆盖平台
 
 | 国内 | 海外 |
